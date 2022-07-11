@@ -11,6 +11,7 @@ public class TestSpring {
 		Music music = context.getBean("musicBean",Music.class);//внедрение зависимости
 		//объект создается не в классе, а передается, поэтому в xml constructor-arg не надо.
 		//если бы создавался внутри класса - то передавали как параметр конструктора
+		//часть 6 - dependeny injection -> через сеттер
 		MusicPlayer mp = new MusicPlayer(music);
 		mp.playMusic();
 		
