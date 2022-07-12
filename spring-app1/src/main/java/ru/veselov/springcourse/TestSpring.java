@@ -16,10 +16,18 @@ public class TestSpring {
 		//объект создается не в классе, а передается, поэтому в xml constructor-arg не надо.
 		//бин мьюзик внедряется вручную
 		//MusicPlayer mp = new MusicPlayer(music);//внедрение вручную
-		
+		//спринг читает кэмел кейс и ищет сеттер с этим бином в проперти - и сам устанавливает этот бин в 
+		//в сеттер
+		//спринг создает музик плейер конструктором без аргументов, потом вызывает метод, который указан в нейм
+		//и туда передает ссылку на бин
 		MusicPlayer musicPlayer = context.getBean("musicPlayer",MusicPlayer.class);//внедрение зависимости через
 		//xml
 		musicPlayer.playMusic();
+		System.out.println(musicPlayer.getName()+ "000"+ musicPlayer.getVolume());
+		
+		
+		
+		
 		context.close();
 	}
 }
