@@ -12,13 +12,26 @@
     <bean id="musicBean"
         class="ru.veselov.springcourse.ClassicalMusic">       
     </bean>
+    <bean id = "rockBean"
+    	class = "ru.veselov.springcourse.RockMusic">
+    </bean>
+    <bean id="metalBean"
+    	class="ru.veselov.springcourse.MetalMusic">
+    </bean>	
+    	
     <bean id="musicPlayer"
     	class = "ru.veselov.springcourse.MusicPlayer">
-    	<property name = "music" ref = "musicBean"/>
     	
+
     	<property name = "name" value = "${musicPlayer.name}"/>
     	<property name = "volume" value = "${musicPlayer.volume}"/>
-    	
+    	<property name = "musicList">
+    		<list>
+	    		<ref bean = "musicBean"/>
+	    		<ref bean = "rockBean"/>
+	    		<ref bean = "metalBean"/>
+	    	</list>
+    	 </property>
     	</bean>
 
 </beans>
