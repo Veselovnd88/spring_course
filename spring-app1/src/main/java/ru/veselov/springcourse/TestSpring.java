@@ -24,6 +24,10 @@ public class TestSpring {
 		//xml
 		musicPlayer.playMusic();
 	//	System.out.println(musicPlayer.getName()+ "000"+ musicPlayer.getVolume());
+		MusicPlayer musicPlayer1 = context.getBean("musicPlayer",MusicPlayer.class);//внедрение зависимости через
+		System.out.println(musicPlayer == musicPlayer1);
+		musicPlayer.setVolume(100);
+		System.out.println(musicPlayer1.getVolume());
 		
 		
 		

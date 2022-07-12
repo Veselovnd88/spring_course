@@ -20,7 +20,8 @@
     </bean>	
     	
     <bean id="musicPlayer"
-    	class = "ru.veselov.springcourse.MusicPlayer">
+    	class = "ru.veselov.springcourse.MusicPlayer"
+    		scope="prototype">
     	
 
     	<property name = "name" value = "${musicPlayer.name}"/>
