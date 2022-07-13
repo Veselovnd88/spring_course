@@ -1,7 +1,12 @@
 package ru.veselov.springcourse;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassicalMusic implements Music{
-	private ClassicalMusic() {}
+	
+	
+	//private ClassicalMusic() {}
 	
 	@Override
 	public String getSong() {
