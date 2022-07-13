@@ -20,16 +20,20 @@ public class TestSpring {
 		//в сеттер
 		//спринг создает музик плейер конструктором без аргументов, потом вызывает метод, который указан в нейм
 		//и туда передает ссылку на бин
-		MusicPlayer musicPlayer = context.getBean("musicPlayer",MusicPlayer.class);//внедрение зависимости через
+		//MusicPlayer musicPlayer = context.getBean("musicPlayer",MusicPlayer.class);//внедрение зависимости через
 		//xml
-		musicPlayer.playMusic();
+		//System.out.println(musicPlayer.getMusicList());
+		
+		
+		//musicPlayer.playMusic();
 	//	System.out.println(musicPlayer.getName()+ "000"+ musicPlayer.getVolume());
-		MusicPlayer musicPlayer1 = context.getBean("musicPlayer",MusicPlayer.class);//внедрение зависимости через
-		System.out.println(musicPlayer == musicPlayer1);
-		musicPlayer.setVolume(100);
-		System.out.println(musicPlayer1.getVolume());
+	//	MusicPlayer musicPlayer1 = context.getBean("musicPlayer",MusicPlayer.class);//внедрение зависимости через
+	//	System.out.println(musicPlayer == musicPlayer1);
+		//musicPlayer.setVolume(100);
+		//System.out.println(musicPlayer1.getVolume());
 		
-		
+		ClassicalMusic cm = context.getBean("musicBean", ClassicalMusic.class);
+		System.out.println(cm.getSong());
 		
 		
 		context.close();

@@ -10,9 +10,12 @@
         <context:property-placeholder location = "classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-        class="ru.veselov.springcourse.ClassicalMusic">       
+        class="ru.veselov.springcourse.ClassicalMusic"
+        init-method = "doMyInit"
+        destroy-method = "doMyDestroy"
+        factory-method="getClassicalMusic">
     </bean>
-    <bean id = "rockBean"
+<!--     <bean id = "rockBean"
     	class = "ru.veselov.springcourse.RockMusic">
     </bean>
     <bean id="metalBean"
@@ -33,6 +36,6 @@
 	    		<ref bean = "metalBean"/>
 	    	</list>
     	 </property>
-    	</bean>
+    	</bean> -->
 
 </beans>
