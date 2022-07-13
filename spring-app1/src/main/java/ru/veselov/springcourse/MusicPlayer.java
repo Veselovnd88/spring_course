@@ -3,26 +3,29 @@ package ru.veselov.springcourse;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class MusicPlayer {
-	//private Music music;//передан интерфейс Music для того чтобы
-	private List<Music> musicList = new ArrayList<>();
+	private Music music;//передан интерфейс Music для того чтобы
+	//private List<Music> musicList = new ArrayList<>();
 	
 	private String name;
 	private int volume;
 	//реализовать inverison of control
 	//IoC
-	/*
-	 * public MusicPlayer(Music music) { this.music = music; }
-	 */
+	@Autowired
+	public MusicPlayer(Music music) { this.music = music; }
+	 
 	public MusicPlayer() {}
 	
 	public void playMusic() {
-		musicList.forEach(x-> System.out.println(x.getSong()));
+	//	musicList.forEach(x-> System.out.println(x.getSong()));
+		music.getSong();
 	}
 	
-	/*
-	 * public void setMusic(Music music) { this.music = music; }
-	 */
+	
+	  public void setMusic(Music music) { this.music = music; }
+	 
 	public String getName() {
 		return name;
 	}
@@ -36,11 +39,11 @@ public class MusicPlayer {
 		this.volume = volume;
 	}
 
-	public List<Music> getMusicList() {
-		return musicList;
-	}
+	//public List<Music> getMusicList() {
+		//return musicList;
+	//}
 
-	public void setMusicList(List<Music> musicList) {
-		this.musicList = musicList;
-	}
+	//public void setMusicList(List<Music> musicList) {
+		//this.musicList = musicList;
+	//}
 }
