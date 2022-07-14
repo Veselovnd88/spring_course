@@ -1,7 +1,6 @@
 package ru.veselov.springcourse;
 
 import org.springframework.stereotype.Component;
-
 @Component
 public class ClassicalMusic implements Music{
 	
@@ -14,7 +13,7 @@ public class ClassicalMusic implements Music{
 		return "Bogemian Rapsodia";
 		}
 	
-	
+	/*
 	public void doMyInit() {
 		System.out.println("Я создался");
 	}
@@ -24,4 +23,4 @@ public class ClassicalMusic implements Music{
 	public static  ClassicalMusic getClassicalMusic() {
 		return new ClassicalMusic();
 	}
-}
+*/}
