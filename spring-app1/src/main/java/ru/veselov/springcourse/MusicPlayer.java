@@ -25,9 +25,15 @@ public class MusicPlayer {
 	 
 	public MusicPlayer() {}
 	
-	public String playMusic() {
+	public String playMusic(Genre genre) {
+			if (genre==Genre.CLASSICAL){
+				return music2.getSong();
+			}
+			else if(genre == Genre.ROCK){
+				return music1.getSong();
+			}
 	//	musicList.forEach(x-> System.out.println(x.getSong()));
-		return music1.getSong()+ "and"+ music2.getSong();
+		return null;
 	}
 	
 	/*@Autowired
