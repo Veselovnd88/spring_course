@@ -4,28 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
 
 //	private Music music;//передан интерфейс Music для того чтобы
-	private ClassicalMusic classicalMusic;
-	private RockMusic rockMusic;
+	private Music music1;
+	private Music music2;
 	private String name;
 	private int volume;
 	//реализовать inverison of control
 	//IoC
 		@Autowired
-		public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-			this.classicalMusic = classicalMusic;
-			this.rockMusic = rockMusic;}
+		public MusicPlayer(@Qualifier("rockMusic") Music music1,
+						   @Qualifier ("classicalMusic") Music music2) {
+			this.music1 = music1;
+			this.music2 = music2;}
 	 
 	public MusicPlayer() {}
 	
 	public String playMusic() {
 	//	musicList.forEach(x-> System.out.println(x.getSong()));
-		return rockMusic.getSong()+ "and"+ classicalMusic.getSong();
+		return music1.getSong()+ "and"+ music2.getSong();
 	}
 	
 	/*@Autowired

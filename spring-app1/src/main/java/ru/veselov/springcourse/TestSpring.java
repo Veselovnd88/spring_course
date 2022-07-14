@@ -37,6 +37,11 @@ public class TestSpring {
 		System.out.println(rm.getSong());
 		System.out.println(cm.getSong());
 		*/
+		/* создать список из 3 песен в рок мьюзик и классикал мбюзтк
+		* в плеер внедрются два бина
+		* енам с двумя жанрами, плей музик принимает енам, в зависимости от енама плеер должен играть рандомную песню*/
+
+
 		Computer computer = context.getBean("computer", Computer.class);
 		System.out.println(computer.toString());
 		context.close();
