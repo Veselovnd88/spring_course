@@ -4,14 +4,17 @@ package ru.veselov.springcourse;
 //создаются зависимости с помощью спринг -аннотации, хml или код
 //все объекты берутся из контейнера спринга
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 //внедрение через конструктор
 //внедрение зависимости через сеттер - 
 //в xml файле 
 public class TestSpring {
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"applicationContext.xml");//создается контекст
+		//ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+		//		"applicationContext.xml");//создается контекст
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+
 		//Music music = context.getBean("musicBean",Music.class);//внедрение зависимости
 		//объект создается не в классе, а передается, поэтому в xml constructor-arg не надо.
 		//бин мьюзик внедряется вручную
@@ -44,6 +47,12 @@ public class TestSpring {
 
 		Computer computer = context.getBean("computer", Computer.class);
 		System.out.println(computer.toString());
+		MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//		System.out.println(musicPlayer.getName());
+//		System.out.println(musicPlayer.getVolume());
+		ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
+		classicalMusic1.getSong();
+
 		context.close();
 	}
 }
